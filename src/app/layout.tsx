@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   description:
     "Cavallery adalah fanbase resmi Catherina Vallencia Kurniawan (Erine) JKT48. Temukan berita, jadwal show theater, live, games, dan proyek eksklusif.",
   keywords: ["Cavallery", "Erine JKT48", "Catherina Vallencia", "JKT48 fanbase"],
+  icons: {
+    icon: "http://localhost:3001/images/cava-logo.jpg",
+    apple: "http://localhost:3001/images/cava-logo.jpg",
+  },
   openGraph: {
     title: "Cavallery — Official Erine Fanbase",
     description: "Fanbase resmi Erine JKT48",
