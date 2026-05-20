@@ -85,7 +85,7 @@ export default function Chatbot() {
               <span>Jenderal Cavallery</span>
             </div>
             <i
-              className="bx bx-chevron-down styles.closeBtn"
+              className={`bx bx-chevron-down ${styles.closeBtn}`}
               style={{ cursor: "pointer", fontSize: "24px" }}
               onClick={() => setIsOpen(false)}
             />
@@ -104,7 +104,7 @@ export default function Chatbot() {
             ))}
             {isLoading && (
               <div className={`${styles.msg} ${styles.bot}`}>
-                Memikirkan jawaban
+                Mengetik
                 <span className={styles.loadingDot}>.</span>
                 <span className={styles.loadingDot}>.</span>
                 <span className={styles.loadingDot}>.</span>

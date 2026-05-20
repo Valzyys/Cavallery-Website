@@ -9,45 +9,58 @@ export default function SplashScreen() {
   const [mobileError, setMobileError] = useState(false);
 
   useEffect(() => {
-    // Only show once per session
+    let mainTimer: NodeJS.Timeout;
+    let fadeTimer: NodeJS.Timeout;
+
+    const startSplash = () => {
+      setVisible(true);
+      setFadeOut(false);
+      
+      clearTimeout(mainTimer);
+      clearTimeout(fadeTimer);
+
+      mainTimer = setTimeout(() => {
+        setFadeOut(true);
+        fadeTimer = setTimeout(() => {
+          setVisible(false);
+          sessionStorage.setItem("splashShown", "1");
+        }, 600);
+      }, 1800);
+    };
+
+    // Initial check
     if (sessionStorage.getItem("splashShown")) {
       setVisible(false);
-      return;
+    } else {
+      startSplash();
     }
-    const timer = setTimeout(() => {
-      setFadeOut(true);
-      setTimeout(() => {
-        setVisible(false);
-        sessionStorage.setItem("splashShown", "1");
-      }, 600);
-    }, 1800);
-    return () => clearTimeout(timer);
+
+    const handleTrigger = () => {
+      startSplash();
+    };
+
+    window.addEventListener("trigger-splash", handleTrigger);
+
+    return () => {
+      clearTimeout(mainTimer);
+      clearTimeout(fadeTimer);
+      window.removeEventListener("trigger-splash", handleTrigger);
+    };
   }, []);
 
   if (!visible) return null;
 
   return (
     <div className={`${styles.splash} ${fadeOut ? styles.fadeOut : ""}`}>
-      {/* Desktop: keying logo video */}
+      {/* Keying logo video */}
       {!desktopError && (
         <video
-          className={`${styles.video} ${styles.desktop}`}
+          className={styles.video}
           src="/assets/keying-logo-center.mp4"
           autoPlay
           muted
           playsInline
           onError={() => setDesktopError(true)}
-        />
-      )}
-      {/* Mobile: portrait video */}
-      {!mobileError && (
-        <video
-          className={`${styles.video} ${styles.mobile}`}
-          src="https://cavallery.id/wp-content/uploads/2025/12/logo-center-portrait.mp4"
-          autoPlay
-          muted
-          playsInline
-          onError={() => setMobileError(true)}
         />
       )}
       {/* Fallback text logo */}

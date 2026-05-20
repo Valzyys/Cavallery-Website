@@ -717,7 +717,12 @@
       }
 
       // --- Controls ---
-      document.addEventListener("keydown", (e) => (keys[e.key] = true));
+      document.addEventListener("keydown", (e) => {
+        if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"," "].includes(e.key)) {
+          e.preventDefault();
+        }
+        keys[e.key] = true;
+      });
       document.addEventListener("keyup", (e) => (keys[e.key] = false));
       document.querySelectorAll(".control-btn").forEach((btn) => {
         const key = btn.dataset.key;

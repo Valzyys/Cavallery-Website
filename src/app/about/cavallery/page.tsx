@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import PetaDomisili from "@/components/PetaDomisili/PetaDomisili";
 
 export const metadata: Metadata = {
-  title: "About Cavallery — Komunitas Resmi Erine JKT48",
+  title: "About Cavallery",
   description:
     "Mengenal lebih jauh tentang Cavallery, komunitas resmi penggemar Erine JKT48 yang berdiri sejak 2024.",
 };
@@ -87,6 +87,27 @@ export default function AboutCavalleryPage() {
           <h2 className={styles.sectionH}>Domisili Anggota Cavallery</h2>
           <div className="divider" style={{ marginBottom: 32 }} />
           <PetaDomisili />
+        </div>
+
+        {/* Canva Presentation */}
+        <div className={styles.domisiliSection}>
+          <div className="badge" style={{ marginBottom: 16 }}>
+            <i className="bx bx-group" /> Kepengurusan
+          </div>
+          <h2 className={styles.sectionH}>Struktur Organisasi Cavallery</h2>
+          <div className="divider" style={{ marginBottom: 16 }} />
+          <p style={{ color: "var(--fg-dim)", marginBottom: 32, maxWidth: 600, marginInline: "auto", textAlign: "center" }}>
+            Struktur kepengurusan resmi, program kerja, dan peta strategis Cavallery.id dalam mengorganisasi dukungan bagi Erine JKT48 secara berkelanjutan.
+          </p>
+          <div style={{ position: "relative", width: "100%", paddingTop: "56.25%", borderRadius: 20, overflow: "hidden", border: "1px solid var(--border)" }}>
+            <iframe
+              src="https://www.canva.com/design/DAGphhh5yG4/PQzSLf0zIpCM_G3-KeHVEA/view?embed"
+              title="Struktur Kepengurusan Cavallery"
+              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: "none" }}
+              loading="lazy"
+              allowFullScreen
+            />
+          </div>
         </div>
 
       </div>

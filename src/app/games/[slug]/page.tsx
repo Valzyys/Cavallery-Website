@@ -5,17 +5,17 @@ import Link from "next/link";
 
 const gameData: Record<string, { title: string; url: string; description: string }> = {
   "grasshopper-collector": {
-    title: "Grasshopper Collector",
+    title: "Game Belalang Yang Membangkang",
     url: "/play/grasshopper-collector.html",
     description: "Kumpulkan belalang sebanyak mungkin sebelum waktu habis!",
   },
   "zombie-escape": {
-    title: "Zombie Escape",
+    title: "Game Erine In Etherland",
     url: "/play/zombie-escape.html",
-    description: "Lari dari para zombie dan selamatkan diri!",
+    description: "Bantu Ratu Erine Menuju Istana Cavallery!",
   },
   "jumping-adventure": {
-    title: "Jumping Adventure",
+    title: "Game Bibir Yang Telah Dicuri",
     url: "/play/jumping-adventure.html",
     description: "Lompati rintangan dan raih skor tertinggi.",
   },

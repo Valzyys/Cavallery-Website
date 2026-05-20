@@ -6,7 +6,7 @@ import SplashScreen from "@/components/SplashScreen";
 import Chatbot from "@/components/Chatbot/Chatbot";
 
 export const metadata: Metadata = {
-  title: "Cavallery — Official Erine Fanbase",
+  title: "Cavallery",
   description:
     "Cavallery adalah fanbase resmi Catherina Vallencia Kurniawan (Erine) JKT48. Temukan berita, jadwal show theater, live, games, dan proyek eksklusif.",
   keywords: ["Cavallery", "Erine JKT48", "Catherina Vallencia", "JKT48 fanbase"],
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     apple: "http://localhost:3001/images/cava-logo.jpg",
   },
   openGraph: {
-    title: "Cavallery — Official Erine Fanbase",
+    title: "Cavallery",
     description: "Fanbase resmi Erine JKT48",
     type: "website",
   },

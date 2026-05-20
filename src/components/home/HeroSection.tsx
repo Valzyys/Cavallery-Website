@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./HeroSection.module.css";
 
 const typewriterTexts = [
@@ -10,9 +10,9 @@ const typewriterTexts = [
 ];
 
 const slideImages = [
-  "https://cavallery.id/wp-content/uploads/2026/01/heroban.webp",
-  "https://cavallery.id/wp-content/uploads/2026/04/parine.jpg",
-  "https://cavallery.id/wp-content/uploads/2026/02/cerine.jpg"
+  "/images/erine1.jpg",
+  "/images/erine2.jpg",
+  "/images/erine3.jpg"
 ];
 
 export default function HeroSection() {
@@ -20,6 +20,26 @@ export default function HeroSection() {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [slideIndex, setSlideIndex] = useState(0);
+  const [isPlayingJiko, setIsPlayingJiko] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const toggleJiko = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio('/audio/jikorine1.mp4');
+      audioRef.current.onended = () => setIsPlayingJiko(false);
+    }
+    if (audioRef.current.paused) {
+      audioRef.current.play().catch(e => {
+        console.error("Audio error:", e);
+        setIsPlayingJiko(false);
+      });
+      setIsPlayingJiko(true);
+    } else {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsPlayingJiko(false);
+    }
+  };
 
   // Typewriter Effect
   useEffect(() => {
@@ -80,6 +100,10 @@ export default function HeroSection() {
             <Link href="/about/erine" className="btnPrimary">
               Meet Erine? <i className="bx bx-chevron-down" />
             </Link>
+            <button className="btnOutline" onClick={toggleJiko} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <i className={`bx ${isPlayingJiko ? 'bx-pause-circle' : 'bx-play-circle'}`} style={{ fontSize: '1.2rem' }} /> 
+              {isPlayingJiko ? 'Playing...' : 'Play Jikoshoukai'}
+            </button>
           </div>
           
         </div>

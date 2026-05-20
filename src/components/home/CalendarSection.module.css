@@ -1,0 +1,235 @@
+.section {
+  padding: 100px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.header {
+  text-align: center;
+}
+
+.title {
+  margin: 12px 0;
+}
+
+.subtitle {
+  color: var(--fg-dim);
+  font-size: 1.05rem;
+}
+
+.calendarCard {
+  padding: 30px;
+}
+
+.calendarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.monthNav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navBtn {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.navBtn:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.monthTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.dayOfWeek {
+  text-align: center;
+  font-weight: 700;
+  color: var(--fg-dim);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding-bottom: 12px;
+}
+
+.cell {
+  aspect-ratio: 1.2;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--surface-2);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.emptyCell {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+.cell:not(.emptyCell):hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--gold-glow);
+}
+
+.today {
+  border-color: var(--primary) !important;
+  background: var(--gold-glow) !important;
+}
+
+.dateNum {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.eventBadge {
+  background: var(--gold);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 8px;
+  text-align: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.eventErine {
+  background: linear-gradient(135deg, var(--gold) 0%, #f59e0b 100%);
+  animation: shine 3s infinite alternate;
+}
+
+.eventInfoList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+  max-height: calc(100% - 24px);
+}
+
+.activeDayPanel {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border-gold);
+  animation: fadeIn 0.3s ease;
+}
+
+.activeDayTitle {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+  color: var(--gold);
+}
+
+.eventCard {
+  border-left: 4px solid var(--gold);
+  padding-left: 16px;
+  margin-bottom: 16px;
+}
+
+.eventCard:last-child {
+  margin-bottom: 0;
+}
+
+.eventTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.eventMeta {
+  font-size: 0.85rem;
+  color: var(--fg-dim);
+  margin-bottom: 8px;
+}
+
+.membersList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.memberTag {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+}
+
+.memberErine {
+  border-color: var(--gold);
+  color: var(--gold);
+  font-weight: 700;
+}
+
+@keyframes shine {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.2); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    gap: 6px;
+  }
+  .cell {
+    aspect-ratio: 1;
+    padding: 6px;
+    border-radius: 10px;
+  }
+  .dateNum {
+    font-size: 0.9rem;
+  }
+  .dayOfWeek {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+  .eventBadge {
+    font-size: 0.55rem;
+    padding: 2px 4px;
+  }
+}

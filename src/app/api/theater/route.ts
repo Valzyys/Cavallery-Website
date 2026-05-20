@@ -3,9 +3,18 @@ import { NextResponse } from "next/server";
 const API_KEY = "sJbpVqLinYlp";
 const BASE = "https://v2.jkt48connect.com/api/jkt48";
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    const res = await fetch(`${BASE}/theater?priority_token=${API_KEY}`, {
+    const { searchParams } = new URL(request.url);
+    const month = searchParams.get("month");
+    const year = searchParams.get("year");
+
+    let apiUrl = `${BASE}/theater?priority_token=${API_KEY}`;
+    if (month && year) {
+      apiUrl += `&month=${month}&year=${year}`;
+    }
+
+    const res = await fetch(apiUrl, {
       headers: { 
         "x-priority-token": API_KEY,
         "Accept": "application/json"
@@ -24,3 +33,4 @@ export async function GET() {
     return NextResponse.json({ success: false, data: [] }, { status: 500 });
   }
 }
+

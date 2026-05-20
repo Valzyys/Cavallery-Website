@@ -6,6 +6,10 @@
   z-index: 2;
 }
 
+[data-theme="dark"] .footer {
+  background: #0a0a0a;
+}
+
 .container {
   max-width: 1400px;
   margin: 0 auto;

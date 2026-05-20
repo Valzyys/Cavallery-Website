@@ -11,27 +11,23 @@ const navLinks = [
     label: "About",
     children: [
       { href: "/about/erine", label: "About Erine" },
-      { href: "/about/erine#biodata", label: "Biodata" },
       { href: "/about/cavallery", label: "About Cavallery" },
-      { href: "/about/cavallery#team", label: "Our Team" },
+      { href: "/gallery", label: "Gallery Erine" },
     ],
   },
-  {
-    label: "Schedule",
-    children: [
-      { href: "/schedule", label: "Erine's Schedule" },
-      { href: "/schedule#theater", label: "Show Theater" },
-      { href: "/schedule#live", label: "Live Status" },
-      { href: "/schedule#videocall", label: "Video Call" },
-    ],
-  },
+  { href: "/schedule", label: "Schedule" },
   { href: "/merchandise", label: "Merchandise" },
   {
-    label: "Corner",
+    label: "Project",
     children: [
       { href: "/erine-in-etherland", label: "Erine in Etherland" },
       { href: "/journal", label: "MemoRine (Journal)" },
       { href: "/games", label: "GameRine" },
+    ],
+  },
+  {
+    label: "Corner",
+    children: [
       { href: "/news", label: "News & Updates" },
       { href: "/#tickets", label: "Ticketing" },
     ],
@@ -59,7 +55,11 @@ export default function Navbar() {
     <nav className={`${styles.nav} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.inner}>
         {/* Logo */}
-        <Link href="/" className={styles.logo}>
+        <Link 
+          href="/" 
+          className={styles.logo} 
+          onClick={() => window.dispatchEvent(new Event("trigger-splash"))}
+        >
           <img src="http://localhost:3001/images/cava-logo.jpg" alt="Cava Logo" className={styles.logoImg} />
           <div className={styles.logoInfo}>
             <span className={styles.logoText}>Cavallery.id</span>
@@ -101,6 +101,7 @@ export default function Navbar() {
                 <Link
                   href={link.href!}
                   className={`${styles.link} ${pathname === link.href ? styles.active : ""}`}
+                  onClick={link.href === "/" ? () => window.dispatchEvent(new Event("trigger-splash")) : undefined}
                 >
                   {link.label}
                 </Link>
@@ -142,6 +143,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href!}
                 className={`${styles.mobileLink} ${pathname === link.href ? styles.active : ""}`}
+                onClick={link.href === "/" ? () => window.dispatchEvent(new Event("trigger-splash")) : undefined}
               >
                 {link.label}
               </Link>

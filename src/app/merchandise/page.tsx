@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
-  title: "Hesitate Bundle Pack — Official Merchandise | Cavallery",
+  title: "Merchandise Cavallery",
   description:
     "Merchandise resmi kavaleri JKT48 Catherina Vallencia (Erine) edisi terbatas bertema HESITATE. Menampilkan Oversized T-Shirt, Lanyard, Keychain, Sticker, dan Ziplock Packaging premium.",
   keywords: ["Erine JKT48", "Cavallery Merchandise", "Hesitate Bundle Pack", "JKT48 merch"],

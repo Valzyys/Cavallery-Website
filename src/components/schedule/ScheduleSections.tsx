@@ -28,7 +28,6 @@ export function TheaterSection() {
   const [shows, setShows] = useState<Show[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [filterErine, setFilterErine] = useState(false);
 
   const load = useCallback(async () => {
     setLoading(true); setError("");
@@ -43,24 +42,20 @@ export function TheaterSection() {
   useEffect(() => { load(); const id = setInterval(load, 180000); return () => clearInterval(id); }, [load]);
 
   const displayed = useMemo(() => {
-    if (!filterErine) return shows;
     return shows.filter((s) => {
       const members: ShowMember[] = s.members ?? s.member ?? s.lineup ?? [];
       return members.some((m) => isErine(m.name ?? ""));
     });
-  }, [shows, filterErine]);
+  }, [shows]);
 
   return (
     <section className={styles.section} id="theater">
       <div className={styles.sectionHeader}>
         <div className="badge"><i className="bx bx-calendar" /> Theater Schedule</div>
         <div className={styles.controls}>
-          <button
-            className={`${styles.filterBtn} ${filterErine ? styles.filterActive : ""}`}
-            onClick={() => setFilterErine((v) => !v)}
-          >
-            <i className={`bx ${filterErine ? "bxs-star" : "bx-star"}`} />
-            {filterErine ? "Show Erine Only" : "Show All"}
+          <button className={`${styles.filterBtn} ${styles.filterActive}`}>
+            <i className="bx bxs-hot" style={{color: "orange"}} />
+            Erine's Shows
           </button>
         </div>
       </div>
@@ -86,7 +81,7 @@ export function TheaterSection() {
             return (
               <div key={show.id ?? idx} className={`${styles.showCard} ${hasErine ? styles.showErine : ""}`}>
                 <div className={styles.showDate}>{dateStr} · {timeStr} WIB</div>
-                <h3 className={styles.showTitle}>{show.title}</h3>
+                <h3 className={styles.showTitle}>{show.title} {hasErine && <i className="bx bxs-hot" style={{color: "orange"}} title="Erine is performing!" />}</h3>
                 <div className={styles.memberTags}>
                   {members.map((m, mi) => (
                     <span key={mi} className={`${styles.memberTag} ${isErine(m.name) ? styles.tagErine : ""}`}>
@@ -161,26 +156,5 @@ export function LiveSection() {
 }
 
 export function VideoCallSection() {
-  return (
-    <div className={styles.vcContainer} id="videocall">
-      <div className={styles.vcSkyline} />
-      <div className={styles.vcNailed} />
-      <h3 className={styles.vcTitle}>Jadwal Video Call Erine</h3>
-      
-      <div className={styles.vcContent}>
-        <div className={styles.vcSchedule}>
-          <div className={styles.vcDate}>Rabu, 11 Maret 2026</div>
-          <div className={styles.vcSession}>Sesi 1: 16.30 – 17.30</div>
-          <div className={styles.vcSession}>Sesi 2: 17.00 – 18.00</div>
-          <div className={styles.vcSession}>Sesi 3: 19.30 – 20.30</div>
-        </div>
-        
-        <div className={styles.vcPoster}>
-          <div className={styles.vcFrame}>
-            <img src="https://cavallery.id/wp-content/uploads/2026/04/VC_Maret.jpg" alt="VC Poster" />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return null;
 }

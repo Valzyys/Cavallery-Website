@@ -53,12 +53,15 @@ export default function AboutErineSection() {
 
   const toggleJiko = () => {
     if (!audioRef.current) {
-      audioRef.current = new Audio('https://cavallery.id/wp-content/uploads/2026/01/jikorine.mp3');
+      audioRef.current = new Audio('/audio/jikorine1.mp4');
       audioRef.current.onended = () => setIsPlayingJiko(false);
     }
 
     if (audioRef.current.paused) {
-      audioRef.current.play();
+      audioRef.current.play().catch(e => {
+        console.error("Audio error:", e);
+        setIsPlayingJiko(false);
+      });
       setIsPlayingJiko(true);
     } else {
       audioRef.current.pause();
@@ -80,7 +83,7 @@ export default function AboutErineSection() {
           <div className={styles.headerSection}>
             <div className={styles.titleBox}>
               <h1 className={styles.wikiName}>Erine</h1>
-              <a href="#sosmed" className={styles.followBtn}>+ Follow</a>
+              <a href="https://www.idn.app/jkt48_erine" target="_blank" className={styles.followBtn}>+ Follow</a>
             </div>
             <span className={styles.jpName}>Japan : エリーヌ</span>
           </div>
@@ -131,8 +134,12 @@ export default function AboutErineSection() {
               <a href="https://www.instagram.com/jkt48.erine/" target="_blank" className={styles.socIcon}><i className="bx bxl-instagram" /></a>
               <a href="https://www.threads.com/@jkt48.erine" target="_blank" className={styles.socIcon}><i className="bx bxl-facebook-circle" /></a>
               <a href="https://www.tiktok.com/@jkt48.erine_" target="_blank" className={styles.socIcon}><i className="bx bxl-tiktok" /></a>
-              <a href="https://www.showroom-live.com/r/JKT48_Erine" target="_blank" className={styles.socIcon}>SR</a>
-              <a href="https://www.idn.app/jkt48_erine" target="_blank" className={styles.socIcon}>IDN</a>
+              <a href="https://www.showroom-live.com/r/JKT48_Erine" target="_blank" className={styles.socIcon}>
+                <img src="/images/showroom.png" alt="Showroom" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
+              </a>
+              <a href="https://www.idn.app/jkt48_erine" target="_blank" className={styles.socIcon}>
+                <img src="/images/idn.png" alt="IDN" style={{ width: "100%", height: "100%", objectFit: "cover", borderRadius: "50%" }} />
+              </a>
             </div>
           </div>
         </div>
@@ -189,7 +196,7 @@ export default function AboutErineSection() {
               <li><span className={styles.lbl2}>Setiap Berbuka</span><span className={styles.tag}>#BukbeRine</span></li>
             </ul>
             <div className={styles.ewPm}>
-              <img src="https://cavallery.id/wp-content/uploads/2026/01/pmlogo.jpg" alt="PM" />
+              <img src="/images/pm.png" alt="PM" />
               <span className={styles.tag}>#NgabaRine</span>
             </div>
           </div>
