@@ -72,7 +72,7 @@
 .socials a:hover {
   border-color: var(--gold);
   color: var(--gold);
-  background: var(--bg);
+  background: transparent;
   transform: translateY(-5px) rotate(8deg);
   box-shadow: 0 10px 20px var(--gold-glow);
 }

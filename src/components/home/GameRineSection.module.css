@@ -52,7 +52,7 @@
   transform: rotate(-10deg) scale(1.15);
   border-color: var(--gold);
   color: var(--gold);
-  background: var(--bg);
+  background: transparent;
   box-shadow: 0 10px 25px var(--gold-glow);
 }
 

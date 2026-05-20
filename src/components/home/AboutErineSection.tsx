@@ -12,10 +12,10 @@ export default function AboutErineSection() {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const slides = [
-    "https://cavallery.id/wp-content/uploads/2026/01/diesvenerine2.webp",
-    "https://cavallery.id/wp-content/uploads/2026/01/ramune2-erine.webp",
-    "https://cavallery.id/wp-content/uploads/2025/12/erine-gemash.webp",
-    "https://cavallery.id/wp-content/uploads/2025/12/erine-lucu2.webp"
+    "/images/erine1.jpg",
+    "/images/erine2.jpg",
+    "/images/erine3.jpg",
+    "/images/erine1.jpg"
   ];
 
   const stats = [

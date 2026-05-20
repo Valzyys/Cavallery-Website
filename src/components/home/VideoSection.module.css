@@ -2,7 +2,7 @@
   padding: 120px 24px;
   position: relative;
   z-index: 2;
-  background: var(--bg);
+  background: transparent;
 }
 
 .inner {

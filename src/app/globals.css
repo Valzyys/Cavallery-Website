@@ -82,14 +82,27 @@ body {
 .knight-watermark {
   position: fixed;
   bottom: -40px;
-  right: -40px;
+  left: -40px;
   font-size: 22rem;
   color: var(--gold);
   opacity: 0.04;
   pointer-events: none;
   z-index: -1;
-  transform: rotate(-15deg);
+  transform: rotate(15deg);
   filter: blur(2px);
+}
+
+.board-watermark {
+  position: fixed;
+  top: 50%;
+  right: -50px;
+  font-size: 25rem;
+  color: var(--gold);
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: -1;
+  transform: translateY(-50%) rotate(-10deg);
+  filter: blur(3px);
 }
 
 h1, h2, h3, h4, h5, h6 {

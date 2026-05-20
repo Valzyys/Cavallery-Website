@@ -157,7 +157,7 @@
 }
 
 .gameFrameWrapper {
-  background: var(--bg);
+  background: transparent;
   aspect-ratio: 16/9;
   position: relative;
 }

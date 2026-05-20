@@ -41,7 +41,7 @@
 .identityToggle {
   display: flex;
   gap: 12px;
-  background: var(--bg);
+  background: transparent;
   padding: 6px;
   border-radius: 12px;
   border: 1px solid var(--border);
