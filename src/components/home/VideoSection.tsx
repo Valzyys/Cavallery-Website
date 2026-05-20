@@ -4,6 +4,12 @@ import styles from "./VideoSection.module.css";
 
 const videos = [
   {
+    src: "/assets/homepage-vt.mp4",
+    title: "Official Teaser — Cavallery.id",
+    desc: "Video teaser resmi dan momen-momen terbaik Erine JKT48 bersama fanbase Cavallery",
+    tag: "Teaser",
+  },
+  {
     src: "https://cavallery.id/wp-content/uploads/2025/11/Cavallery_ErineInEtherland_-_LAPAK_GAMING_SERU_BANGET____Hari_ini_kita_menemani_ketua_CErine_JKT4._5FWGRc.mp4",
     title: "LAPAK GAMING SERU BANGET!",
     desc: "Erine in Etherland Gaming Session",
